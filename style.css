@@ -1,0 +1,218 @@
+:root {
+    --bg-color: #0d0d0d; 
+    --accent-glow: #9d4edd; 
+    --text-primary: #e0e0e0;
+    --text-dim: #666666;
+    --terminal-font: 'JetBrains Mono', 'Courier New', monospace;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    font-family: var(--terminal-font);
+    display: flex;
+    justify-content: center;
+    padding-top: 50px;
+    margin: 0;
+}
+
+.terminal-container {
+    width: 90%;
+    max-width: 600px;
+    border: 1px solid var(--text-dim);
+    padding: 20px;
+    box-shadow: 0 0 15px rgba(157, 78, 221, 0.1); 
+}
+
+header {
+    border-bottom: 1px solid var(--text-dim);
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+}
+
+.status-line {
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+}
+
+#stability-val {
+    color: var(--accent-glow);
+    text-shadow: 0 0 5px var(--accent-glow);
+}
+
+input {
+    background: transparent;
+    border: 1px solid var(--text-dim);
+    color: var(--accent-glow);
+    padding: 10px;
+    width: 70%;
+    font-family: var(--terminal-font);
+}
+
+button {
+    background: var(--accent-glow);
+    border: none;
+    color: white;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+button:hover {
+    filter: brightness(1.2);
+}
+.reset-btn {
+    margin-top: 30px;
+    background: transparent;
+    border: 1px solid #444;
+    color: var(--text-dim);
+    padding: 5px 10px;
+    font-size: 0.8rem;
+    width: auto;
+}
+.reset-btn:hover {
+    background: #ff5555;
+    color: white;
+    border: 1px solid #ff5555;
+    box-shadow: 0 0 10px rgba(255, 85, 85, 0.3);
+}   
+#stability-val {
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+.stability-container {
+    width: 100%;
+    height: 6px;
+    background: #1a1a1a;
+    border-radius: 3px;
+    margin: 15px 0 10px 0;
+    overflow: hidden;
+    border: 1px solid #333;
+}
+#stability-bar {
+    height: 100%;
+    width: 0%; 
+    background: linear-gradient(90deg, #5a189a, #9d4edd);
+    box-shadow: 0 0 10px #9d4edd;
+    transition: width 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.system-log {
+    background: rgba(157, 78, 221, 0.05); 
+    padding: 8px;
+    border-left: 2px solid #9d4edd;
+    font-size: 0.75rem;
+    color: #888;
+    font-family: 'Courier New', monospace;
+    margin-bottom: 20px;
+}
+
+.prompt {
+    color: #9d4edd;
+    margin-right: 5px;
+}
+#alias-input {
+    background: transparent;
+    border: none;
+    border-bottom: 1px dashed #444;
+    color: var(--accent-glow); 
+    font-family: inherit;
+    font-size: inherit;
+    width: 120px;
+    outline: none;
+    transition: 0.3s;
+}
+
+#alias-input:focus {
+    border-bottom: 1px solid var(--accent-glow);
+    color: #fff;
+    text-shadow: 0 0 5px var(--accent-glow);
+}
+
+#alias-input::placeholder {
+    color: #444;
+}
+.code-comment {
+    color: #6a9955; 
+    font-size: 0.65rem;
+    font-family: 'Courier New', monospace;
+    margin-bottom: 4px;
+    letter-spacing: 0.5px;
+    font-style: italic;
+    opacity: 0.8;
+}
+
+.status-line {
+    margin-bottom: 15px;
+    font-weight: bold;
+    color: #fff;
+    font-size: 0.85rem;
+}
+
+.log-content {
+    display: flex;
+    align-items: center;
+}
+
+.input-group {
+    display: flex;
+    gap: 10px;
+    margin-top: 5px;
+}
+
+.stability-full {
+    box-shadow: 0 0 25px #9d4edd, 0 0 50px rgba(157, 78, 221, 0.4) !important;
+    animation: pulse-glow 2s infinite;
+}
+
+@keyframes pulse-glow {
+    0% { filter: brightness(1); }
+    50% { filter: brightness(1.5); }
+    100% { filter: brightness(1); }
+}
+
+.level-up-flash {
+    animation: flash-white 0.5s ease-out;
+}
+
+@keyframes flash-white {
+    0% { background-color: rgba(255, 255, 255, 0.8); }
+    100% { background-color: transparent; }
+}
+.code-comment {
+    color: #6a9955;
+    font-size: 0.65rem;
+    font-family: 'Courier New', monospace;
+    font-style: italic;
+  
+    opacity: 0; 
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    margin-top: 0;
+}
+
+.status-line:hover .code-comment,
+.node-container:hover .code-comment,
+.system-log:hover .code-comment,
+.input-module:hover .code-comment {
+    opacity: 0.8;
+    max-height: 20px; 
+    margin-top: 4px;
+}
+
+#habit-name:focus + .code-comment,
+#alias-input:focus + .code-comment {
+    opacity: 0.8;
+    max-height: 20px;
+}
+.status-line, .system-log, .node-container {
+    transition: background 0.3s ease, border-color 0.3s ease;
+    border-radius: 4px;
+    padding: 5px; 
+}
+
+.status-line:hover {
+    background: rgba(157, 78, 221, 0.03); 
+}

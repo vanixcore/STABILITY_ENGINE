@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STABILITY_ENGINE</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="dark-sector">
+
+    <div class="sandbox-wrapper">
+        <header>
+            <div class="status-line">
+                LOGGED_IN_AS: <input type="text" id="alias-input" placeholder="ENTER_ALIAS...">
+                <div class="code-comment">// Verified identity of the active system architect</div>
+            </div>
+            
+            <div class="status-line">
+                SYSTEM_STABILITY: <span id="stability-val">100%</span>
+                <div class="code-comment">// Metric for daily protocol completion integrity</div>
+            </div>
+
+            <div class="status-line">
+                LAST_SYNC: <span id="sync-clock">NEVER</span>
+                <div class="code-comment">// Timestamp of the most recent data persistence check</div>
+            </div>
+
+            <div class="stability-container">
+                <div id="stability-bar"></div>
+            </div>
+            
+            <div class="system-log">
+                <div class="code-comment">// Standard diagnostic output stream (Human-readable feedback)</div>
+                <div class="log-content">
+                    <span class="prompt">></span> <span id="log-text">SYSTEM_READY...</span>
+                </div>
+            </div>
+        </header>
+
+        <section class="input-module">
+            <div class="code-comment">// Initialize new behavioral nodes below</div>
+            <div class="input-group">
+                <input type="text" id="habit-name" placeholder="Input protocol name (e.g. Tennis, C-Logic)...">
+                <button onclick="addHabit()" id="init-btn">INITIALIZE</button>
+            </div>
+        </section>
+
+        <main>
+            <h3 class="status-line">ACTIVE_NODES</h3>
+            <div class="code-comment">// List of active protocols requiring daily synchronization</div>
+            <ul id="habit-list">
+                </ul>
+        </main>
+
+        <footer>
+            <button onclick="systemReset()" class="danger-btn">TERMINATE_ALL_PROCESSES</button>
+            <div class="code-comment">// Warning: Permanent memory purge of all registry data</div>
+        </footer>
+    </div>
+
+    <script src="engine.js"></script>
+</body>
+</html>
